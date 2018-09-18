@@ -1,0 +1,26 @@
+- defaults:
+    link:
+      relink: true
+      create: true
+
+- clean: ['~']
+
+- link:
+
+    #This project
+    ~/worspace/dotfiles: ''
+
+    #Tmux
+    ~/.tmux.conf: tmux.conf
+
+    # Vim
+    ~/.vimrc: vim/vimrc
+
+    # Neovim
+    ~/.config/nvim/autoload: vim/autoload
+    ~/.config/nvim/init.vim: vim/vimrc
+
+    #Zsh
+    ~/.zshrc: zsh/zshrc
+    ~/.oh-my-zsh: zsh/oh-my-zsh
+

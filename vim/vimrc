@@ -1,0 +1,59 @@
+syntax on
+set number
+set relativenumber
+set tabstop=2
+set shiftwidth=2
+set expandtab
+set autoindent
+set smartindent
+set autoread
+au CursorHold * checktime
+
+au VimEnter,BufWinEnter * syn match ErrorMsg " "
+
+" Autoindent
+filetype plugin indent on
+
+
+" Vim Plug - Plugin Installation
+" https://github.com/junegunn/vim-plug
+call plug#begin('~/.local/share/nvim/plugged')
+
+  " https://github.com/Shougo/deoplete.nvim
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
+  " https://github.com/Shougo/deoplete.nvim
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
+  Plug 'junegunn/seoul256.vim', { 'do': 'UpdateRemotePlugins' }
+
+  " https://github.com/ctrlpvim/ctrlp.vim
+  Plug 'ctrlpvim/ctrlp.vim'
+
+  " https://github.com/scrooloose/nerdtree
+  Plug 'scrooloose/nerdtree'
+
+call plug#end()
+
+" Setup deoplete options
+let g:deoplete#enable_at_startup = 1
+
+" Set them backgroung color
+let g:seoul256_background = 233
+colo seoul256
+
+" ctrlp
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+
+" nerdtree
+"
+" auto-open if no file specified
+
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endifi
+" auto-close if alone
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" key mapping to toggle
+map <C-e> :NERDTreeToggle<CR>
