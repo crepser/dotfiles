@@ -9,7 +9,6 @@ set smartindent
 set autoread
 au CursorHold * checktime
 
-au VimEnter,BufWinEnter * syn match ErrorMsg " "
 
 " Autoindent
 filetype plugin indent on
@@ -23,6 +22,8 @@ call plug#begin('~/.local/share/nvim/plugged')
 
   Plug 'junegunn/seoul256.vim', { 'do': 'UpdateRemotePlugins' }
 
+  Plug 'zchee/deoplete-jedi'
+  
   " https://github.com/ctrlpvim/ctrlp.vim
   Plug 'ctrlpvim/ctrlp.vim'
 
@@ -33,6 +34,16 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'w0rp/ale'
 
 call plug#end()
+
+" Setup ale
+let g:ale_linters = {
+\   'python': ['flake8']
+\}
+
+let g:ale_linters_explicit = 1
+
+" Setup deoplete-jedi
+let g:deoplete#sources#jedi#python_path = 'python3'
 
 " Setup deoplete options
 let g:deoplete#enable_at_startup = 1
