@@ -14,13 +14,9 @@ au VimEnter,BufWinEnter * syn match ErrorMsg " "
 " Autoindent
 filetype plugin indent on
 
-
 " Vim Plug - Plugin Installation
 " https://github.com/junegunn/vim-plug
 call plug#begin('~/.local/share/nvim/plugged')
-
-  " https://github.com/Shougo/deoplete.nvim
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
   " https://github.com/Shougo/deoplete.nvim
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -32,6 +28,9 @@ call plug#begin('~/.local/share/nvim/plugged')
 
   " https://github.com/scrooloose/nerdtree
   Plug 'scrooloose/nerdtree'
+
+  " https://github.com/w0rp/ale
+  Plug 'w0rp/ale'
 
 call plug#end()
 
@@ -52,7 +51,7 @@ let g:ctrlp_working_path_mode = 'ra'
 " auto-open if no file specified
 
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endifi
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " auto-close if alone
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " key mapping to toggle
