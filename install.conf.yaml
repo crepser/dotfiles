@@ -19,7 +19,6 @@
 
     #Zsh
     ~/.zshrc: zsh/zshrc
-    ~/.oh-my-zsh: zsh/oh-my-zsh
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
