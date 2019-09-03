@@ -13,10 +13,6 @@ au CursorHold * checktime
 " Autoindent
 filetype plugin indent on
 
-" Set them backgroung color
-let g:seoul256_background = 233
-colo seoul256
-
 " ctrlp
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'

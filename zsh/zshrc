@@ -95,8 +95,5 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias vdti="sudo openconnect vpn.cdi.ulaval.ca"
 alias weather='curl wttr.in/~Quebec+City'
 alias show_img='xviewer'
-alias vim='nvim'
-alias vi='nvim'
