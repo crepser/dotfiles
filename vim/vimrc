@@ -13,42 +13,6 @@ au CursorHold * checktime
 " Autoindent
 filetype plugin indent on
 
-" Vim Plug - Plugin Installation
-" https://github.com/junegunn/vim-plug
-call plug#begin('~/.local/share/nvim/plugged')
-
-  " https://github.com/Shougo/deoplete.nvim
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-
-  Plug 'junegunn/seoul256.vim', { 'do': 'UpdateRemotePlugins' }
-
-  Plug 'zchee/deoplete-jedi'
-  
-  " https://github.com/ctrlpvim/ctrlp.vim
-  Plug 'ctrlpvim/ctrlp.vim'
-
-  " https://github.com/scrooloose/nerdtree
-  Plug 'scrooloose/nerdtree'
-
-  " https://github.com/w0rp/ale
-  Plug 'w0rp/ale'
-
-call plug#end()
-
-" Setup ale
-let g:ale_linters = {
-\   'python': ['flake8']
-\}
-
-let g:ale_linters_explicit = 1
-
-" Setup deoplete-jedi
-let g:deoplete#sources#jedi#python_path = 'python3'
-
-" Setup deoplete options
-let g:deoplete#enable_at_startup = 1
-
-
 " Set them backgroung color
 let g:seoul256_background = 233
 colo seoul256
@@ -57,14 +21,3 @@ colo seoul256
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
-
-" nerdtree
-"
-" auto-open if no file specified
-
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-" auto-close if alone
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-" key mapping to toggle
-map <C-e> :NERDTreeToggle<CR>

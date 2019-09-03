@@ -16,10 +16,6 @@
     # Vim
     ~/.vimrc: vim/vimrc
 
-    # Neovim
-    ~/.config/nvim/autoload: vim/autoload
-    ~/.config/nvim/init.vim: vim/vimrc
-
     #Zsh
     ~/.zshrc: zsh/zshrc
     ~/.oh-my-zsh: zsh/oh-my-zsh
