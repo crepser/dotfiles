@@ -1,6 +1,7 @@
 #! /bin/bash
 
 BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PACKAGES="tmux vim cmake"
 
 # install zsh
 if sudo pacman -Qi zsh > /dev/null ; then 
@@ -18,3 +19,20 @@ if [ -d ~/.oh-my-zsh ]; then
   rm -rf ~/.oh-my-zsh
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 fi
+
+for pkg in PACKAGES; do
+  if sudo pacman -Qi $pkg > /dev/null; then
+    echo $pkg" is already installed"
+  else
+    sudo pacman -S --noconfirm $pkg
+  fi
+done
+
+#vim stuff
+if [ -d ~/.vim/bundle/Vndle.vim]; then
+  echo 'Vundle is already installed'
+else
+  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+fi
+vim +PluginInstall +qall
+cd ~/.vim/bundle/YouCompleteMe && git submodule update --init --recursive && python3 install.py --all
